@@ -11,7 +11,6 @@ import java.util.Date;
 @RequestMapping("/api")
 public class hello {
 
-
     @GetMapping("/")
     public String hello()
         {
