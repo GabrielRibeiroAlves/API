@@ -1,7 +1,9 @@
 package apicarros.API.controller;
 
 import apicarros.API.entity.Carro;
+import apicarros.API.entity.Permissao;
 import apicarros.API.service.CarroService;
+import apicarros.API.service.PermissaoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,32 +12,32 @@ import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/carro")
+@RequestMapping("/api/permissao")
 
-public class CarroController {
+public class PermissaoController {
 
     @Autowired
-    private CarroService carroService;
+    private PermissaoService permissaoService;
 
     @GetMapping("/")
-    public List<Carro> listarTodos()
+    public List<Permissao> listarTodos()
     {
-        return carroService.listarTodos();
+        return permissaoService.listarTodos();
     }
     @PostMapping("/")
-    public Carro inserir(@RequestBody Carro carro)
+    public Permissao inserir(@RequestBody Permissao permissao)
     {
-        return carroService.inserir(carro);
+        return permissaoService.inserir(permissao);
     }
     @PutMapping("/")
-    public Carro alterar(@RequestBody Carro carro)
+    public Permissao alterar(@RequestBody Permissao permissao)
     {
-        return carroService.alterar(carro);
+        return permissaoService.alterar(permissao);
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id)
     {
-        carroService.excluir(id);
+        permissaoService.excluir(id);
         return ResponseEntity.ok().build();
     }
 

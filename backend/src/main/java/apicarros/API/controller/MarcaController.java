@@ -1,7 +1,9 @@
 package apicarros.API.controller;
 
 import apicarros.API.entity.Carro;
+import apicarros.API.entity.Marca;
 import apicarros.API.service.CarroService;
+import apicarros.API.service.MarcaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,32 +12,32 @@ import javax.websocket.server.PathParam;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/carro")
+@RequestMapping("/api/marca")
 
-public class CarroController {
+public class MarcaController {
 
     @Autowired
-    private CarroService carroService;
+    private MarcaService marcaService;
 
     @GetMapping("/")
-    public List<Carro> listarTodos()
+    public List<Marca> listarTodos()
     {
-        return carroService.listarTodos();
+        return marcaService.listarTodos();
     }
     @PostMapping("/")
-    public Carro inserir(@RequestBody Carro carro)
+    public Marca inserir(@RequestBody Marca marca)
     {
-        return carroService.inserir(carro);
+        return marcaService.inserir(marca);
     }
     @PutMapping("/")
-    public Carro alterar(@RequestBody Carro carro)
+    public Marca alterar(@RequestBody Marca marca)
     {
-        return carroService.alterar(carro);
+        return marcaService.alterar(marca);
     }
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluir(@PathVariable("id") Long id)
     {
-        carroService.excluir(id);
+        marcaService.excluir(id);
         return ResponseEntity.ok().build();
     }
 
