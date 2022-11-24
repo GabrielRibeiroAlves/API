@@ -14,10 +14,15 @@ public class PessoaGerenciamentoController {
     @Autowired
     private PessoaGerenciamentoService pessoaGerenciamentoService;
 
-    @PostMapping("/")
-    public String recuperarCodigo(@RequestParam("email")String email)
+    @PostMapping("/recuperar-codigo")
+    public String recuperarCodigo(@RequestBody Pessoa pessoa)
     {
-        return pessoaGerenciamentoService.solicitarcodigo(email);
+        return pessoaGerenciamentoService.solicitarcodigo(pessoa.getEmail());
+    }
+    @PostMapping("/alterar-senha")
+    public String alterarSenha(@RequestBody Pessoa pessoa)
+    {
+        return pessoaGerenciamentoService.solicitarcodigo(pessoa);
     }
 
 
