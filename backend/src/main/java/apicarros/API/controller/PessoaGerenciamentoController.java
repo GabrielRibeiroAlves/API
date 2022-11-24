@@ -22,7 +22,7 @@ public class PessoaGerenciamentoController {
     @PostMapping("/alterar-senha")
     public String alterarSenha(@RequestBody Pessoa pessoa)
     {
-        return pessoaGerenciamentoService.solicitarcodigo(pessoa);
+        return pessoaGerenciamentoService.alterarSenha(pessoa);
     }
 
 

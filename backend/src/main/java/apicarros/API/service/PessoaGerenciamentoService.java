@@ -27,7 +27,7 @@ public class PessoaGerenciamentoService {
     {
         Pessoa pessoa = pessoaRepository.findByEmail(email);
         pessoa.setCodigoRecuperacaoSenha(getCodigorecuperacaoSenha(pessoa.getId()));
-        pessoa.setDataEnviodeCodigo(new Data());
+        pessoa.setDataEnviodeCodigo(new Date());
         pessoaRepository.saveAndFlush(pessoa);
         emailService.enviarEmailTexto(pessoa.getEmail(),"CODIGO DE VERIFICACAO DE SENHA",
                 "Seu codigo de verificacao de senha é:"+pessoa.getCodigoRecuperacaoSenha());
