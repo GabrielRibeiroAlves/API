@@ -24,6 +24,9 @@ public class Pessoa {
     private String nome;
     private String email;
     private String senha;
+    @Temporal(TemporalType.DATE)
+    private String codigoRecuperacaoSenha;
+    private Date dataEnviodeCodigo;
 
     public void setPermissaoPessoas(List<PermissaoPessoa> pp) {
         for(PermissaoPessoa p:pp )

@@ -17,7 +17,7 @@ public class PessoaUsuarioController {
     @PostMapping("/")
     public Pessoa inserir(@RequestBody PessoaUsuarioRequestDTO pessoaUsuarioRequestDTO)
     {
-        Pessoa pessoa = new PessoaUsuarioRequestDTO().converter(pessoaUsuarioRequestDTO)
+        Pessoa pessoa = new PessoaUsuarioRequestDTO().converter(pessoaUsuarioRequestDTO);
         return pessoaUsuarioService.registrar(pessoaUsuarioRequestDTO);
     }
 
