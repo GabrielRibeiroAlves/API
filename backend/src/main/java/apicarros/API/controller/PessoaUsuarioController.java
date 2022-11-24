@@ -2,7 +2,7 @@ package apicarros.API.controller;
 
 import apicarros.API.dto.PessoaUsuarioRequestDTO;
 import apicarros.API.entity.Pessoa;
-import apicarros.API.service.PessoaService;
+import apicarros.API.service.PessoaUsuarioService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.*;
 public class PessoaUsuarioController {
 
     @Autowired
-    private PessoaService pessoaService;
+    private PessoaUsuarioService pessoaUsuarioService;
 
     @PostMapping("/")
     public Pessoa inserir(@RequestBody PessoaUsuarioRequestDTO pessoaUsuarioRequestDTO)
     {
         Pessoa pessoa = new PessoaUsuarioRequestDTO().converter(pessoaUsuarioRequestDTO)
-        return pessoaService.inserir(pessoa);
+        return pessoaUsuarioService.registrar(pessoaUsuarioRequestDTO);
     }
 
 

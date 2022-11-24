@@ -1,9 +1,13 @@
 package apicarros.API.repository;
 
-import apicarros.API.entity.Marca;
+
+import apicarros.API.entity.PermissaoPessoa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
-public interface MarcaRepository extends JpaRepository<Marca,Long> {
+public interface PermissaoPessoaRepository extends JpaRepository<PermissaoPessoa,Long> {
+
+
 }

@@ -1,13 +1,10 @@
 package apicarros.API.service;
 
-import apicarros.API.entity.Carro;
 import apicarros.API.entity.Marca;
-import apicarros.API.repository.CarroRepository;
 import apicarros.API.repository.MarcaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
 import java.util.List;
 
 @Service
