@@ -5,6 +5,7 @@ import apicarros.API.entity.Pessoa;
 import apicarros.API.repository.PessoaRepository;
 import apicarros.API.repository.PessoaUsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.xml.crypto.Data;
@@ -22,6 +23,9 @@ public class PessoaGerenciamentoService {
 
     @Autowired
     private EmailService emailService;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     public String solicitarcodigo(String email)
     {
@@ -44,11 +48,10 @@ public class PessoaGerenciamentoService {
 
             if((diferenca.getTime()/1000)<900)
             {
-                pessoaBanco.setSenha(pessoa.getSenha());
+                pessoaBanco.setSenha(passwordEncoder.encode(pessoa.getSenha()));
                 pessoaBanco.setCodigoRecuperacaoSenha(null);
                 pessoaRepository.saveAndFlush(pessoaBanco);
                 return "Senha alterada com sucesso!";
-
             }else
             {
                 return "Tempo expirou,solicite um novo codigo";
