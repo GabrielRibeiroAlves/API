@@ -37,7 +37,7 @@ public class PessoaGerenciamentoService {
     public String alterarSenha(Pessoa pessoa)
     {
 
-        Pessoa pessoaBanco = pessoaRepository.findByEmailAndCodigCoRecuperacaoSenha(pessoa.getEmail(),pessoa.getCodigoRecuperacaoSenha());
+        Pessoa pessoaBanco = pessoaRepository.findByEmailAndCodigoRecuperacaoSenha(pessoa.getEmail(),pessoa.getCodigoRecuperacaoSenha());
         if(pessoaBanco!=null)
         {
             Date diferenca = new Date(new Date().getTime() - pessoaBanco.getDataEnviodeCodigo().getTime());
