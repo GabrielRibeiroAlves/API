@@ -25,6 +25,7 @@ public class PessoaGerenciamentoController {
 
     @Autowired
     AuthenticationManager authenticationManager;
+
     @PostMapping("/recuperar-codigo")
     public String recuperarCodigo(@RequestBody Pessoa pessoa)
     {
@@ -46,6 +47,5 @@ public class PessoaGerenciamentoController {
         String token =jwtUtil.gerarTokenUsername(autenticado);
         return ResponseEntity.ok(token);
     }
-
 
 }

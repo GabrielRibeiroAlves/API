@@ -21,6 +21,6 @@ public class PessoaDetailService implements UserDetailsService {
         {
             throw new UsernameNotFoundException("Usuario nao encontrado pelo email");
         }
-        return null;
+        return pessoa;
     }
 }

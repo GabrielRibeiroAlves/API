@@ -15,7 +15,7 @@ public class JwtUtil {
     private static final Logger logger= LoggerFactory.getLogger(JwtUtil.class);
 
     public String gerarTokenUsername(Pessoa pessoa)
-    {
+     {
         return Jwts.builder().setSubject(pessoa.getUsername())
                 .setIssuedAt(new Date(new Date().getTime()+validadeToken))
                 .signWith(SignatureAlgorithm.HS512,chaveSecreta).compact();
