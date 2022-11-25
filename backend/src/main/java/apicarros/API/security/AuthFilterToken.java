@@ -37,19 +37,20 @@ public class AuthFilterToken extends OncePerRequestFilter {
                     authenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                     SecurityContextHolder.getContext().setAuthentication(authenticationToken);
                 }
-            }catch(Exception e)
-            {
-                System.out.println("Nao foi possivel setar autentificacao do usuario. " +e.getMessage());
             }
+           catch(Exception e)
+           {
+               System.out.println("Nao foi possivel setar autentificacao do usuario. " +e.getMessage());
+           }
             filterChain.doFilter(request,response);
     }
 
     private String getToken(HttpServletRequest request )
     {
-        String headerToken = request.getHeader("Authorization");
+        String headerToken = request.getHeader("Authorization" );
         if(StringUtils.hasText(headerToken) && headerToken.startsWith("Bearer "))
         {
-            return headerToken.replace("Bearer","");
+            return headerToken.replace("Bearer ","");
         }
         return null;
     }

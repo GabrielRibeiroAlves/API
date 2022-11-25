@@ -17,14 +17,13 @@ public class EmailService {
     private JavaMailSender javaMailSender;
 
     @Value("&{spring.mail.username}")
-
     private String remetente;
 
     public String enviarEmailTexto(String destinatario, String titulo, String mensagem)
     {
         try {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
-            simpleMailMessage.setFrom("apispringboot4@gmail.com");
+            simpleMailMessage.setFrom(remetente);
             simpleMailMessage.setTo(destinatario);
             simpleMailMessage.setSubject(titulo);
             simpleMailMessage.setText(mensagem);

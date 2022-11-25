@@ -15,12 +15,14 @@ public class PessoaDetailService implements UserDetailsService {
     private PessoaRepository pessoaRepository;
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Pessoa pessoa = pessoaRepository.findByEmail(username);
-        if(pessoa==null)
-        {
-            throw new UsernameNotFoundException("Usuario nao encontrado pelo email");
-        }
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        Pessoa pessoa = pessoaRepository.findByEmail(email);
+
+
+       if(pessoa==null)
+       {
+           throw new UsernameNotFoundException("Usuario nao encontrado pelo email" +pessoa.getEmail());
+       }
         return pessoa;
     }
 }

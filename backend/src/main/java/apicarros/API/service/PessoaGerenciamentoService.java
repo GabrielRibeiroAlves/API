@@ -34,8 +34,8 @@ public class PessoaGerenciamentoService {
         pessoa.setDataEnviodeCodigo(new Date());
         pessoaRepository.saveAndFlush(pessoa);
         emailService.enviarEmailTexto(pessoa.getEmail(),"CODIGO DE VERIFICACAO DE SENHA",
-                "Seu codigo de verificacao de senha é:"+pessoa.getCodigoRecuperacaoSenha());
-        return "Codigo enviado!";
+                "Seu codigo de verificacao de senha é: ");
+        return "Codigo enviado!"+pessoa.getEmail();
     }
 
     public String alterarSenha(Pessoa pessoa)
