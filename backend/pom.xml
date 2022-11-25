@@ -68,8 +68,14 @@
 			<version>0.9.1</version>
 		</dependency>
 		<!-- -->
-	</dependencies>
 
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.6.13</version>
+		</dependency>
+
+	</dependencies>
 	<build>
 		<plugins>
 			<plugin>

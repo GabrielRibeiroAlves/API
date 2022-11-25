@@ -17,7 +17,7 @@ public class JwtUtil {
     public String gerarTokenUsername(Pessoa pessoa)
      {
         return Jwts.builder().setSubject(pessoa.getUsername())
-                .setIssuedAt(new Date(new Date().getTime()+validadeToken))
+                .setIssuedAt(new Date()).setExpiration(new Date(new Date().getTime()+validadeToken))
                 .signWith(SignatureAlgorithm.HS512,chaveSecreta).compact();
     }
 

@@ -20,7 +20,7 @@ public class Pessoa implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToMany(mappedBy = "pessoa", orphanRemoval = true,cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @OneToMany(mappedBy = "pessoa", orphanRemoval = true,cascade = {CascadeType.PERSIST, CascadeType.MERGE},fetch = FetchType.EAGER)
     @Setter(value = AccessLevel.NONE)
     private List<PermissaoPessoa> permissaoPessoas;
 
@@ -30,6 +30,11 @@ public class Pessoa implements UserDetails {
     private String codigoRecuperacaoSenha;
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataEnviodeCodigo;
+
+
+    public Pessoa() {
+
+    }
 
     public void setPermissaoPessoas(List<PermissaoPessoa> pp) {
         for(PermissaoPessoa p:pp )
@@ -47,12 +52,12 @@ public class Pessoa implements UserDetails {
 
     @Override
     public String getPassword() {
-        return senha;
+        return this.senha;
     }
 
     @Override
     public String getUsername() {
-        return nome;
+        return this.nome;
     }
 
     @Override
@@ -74,4 +79,5 @@ public class Pessoa implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
 }
