@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class PessoaDetailService implements UserDetailsService {
 
 
@@ -22,14 +22,12 @@ public class PessoaDetailService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        Pessoa pessoa = pessoaRepository.saveAndFlush(new Pessoa());
+        Pessoa pessoa = new Pessoa();
         pessoaRepository.findByEmail(email);
 
-        System.out.println(pessoa.getEmail());
        if(pessoa == null)
        {
-
-           throw new UsernameNotFoundException("Usuario nao encontrado pelo email" +pessoa.getEmail());
+           throw new UsernameNotFoundException("Usuario nao encontrado pelo email");
        }
         return pessoa;
     }

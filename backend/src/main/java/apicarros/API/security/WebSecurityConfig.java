@@ -19,11 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class  WebSecurityConfig {
 
-    private PessoaDetailService pessoaDetailService;
-    @Autowired
-    public WebSecurityConfig(PessoaDetailService pessoaDetailService) {
-        this.pessoaDetailService = pessoaDetailService;
-    }
+
 
     @Bean
     public AuthFilterToken authFilterToken()
@@ -49,7 +45,6 @@ public class  WebSecurityConfig {
                 .and().authorizeRequests().antMatchers("/api/pessoa-gerenciamento/**").permitAll()
                 .antMatchers("/api/pessoa/**").hasAnyAuthority("adm")
                 .anyRequest().authenticated();
-
 
 
                 http.addFilterBefore(authFilterToken(), UsernamePasswordAuthenticationFilter.class);

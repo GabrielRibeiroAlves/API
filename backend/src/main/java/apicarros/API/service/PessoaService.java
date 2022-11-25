@@ -1,15 +1,18 @@
 package apicarros.API.service;
 
 
+import antlr.BaseAST;
 import apicarros.API.entity.Pessoa;
 import apicarros.API.repository.PessoaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class PessoaService {
+
 
     @Autowired
     private PessoaRepository pessoaRepository;
@@ -40,5 +43,6 @@ public class PessoaService {
         Pessoa pessoa = pessoaRepository.findById(id).get();
         pessoaRepository.delete(pessoa);
     }
+
 
 }

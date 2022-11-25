@@ -1,6 +1,6 @@
 package apicarros.API.controller;
 
-import apicarros.API.dto.PessoaUsuarioRequestDTO;
+
 import apicarros.API.entity.Pessoa;
 import apicarros.API.security.JwtUtil;
 import apicarros.API.service.PessoaGerenciamentoService;
@@ -46,6 +46,6 @@ public class PessoaGerenciamentoController {
         Pessoa autenticado = (Pessoa) authentication.getPrincipal();
         String token =jwtUtil.gerarTokenUsername(autenticado);
         return ResponseEntity.ok(token);
-    }
+     }
 
 }

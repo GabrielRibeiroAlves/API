@@ -31,11 +31,6 @@ public class Pessoa implements UserDetails {
     @Temporal(TemporalType.TIMESTAMP)
     private Date dataEnviodeCodigo;
 
-
-    public Pessoa() {
-
-    }
-
     public void setPermissaoPessoas(List<PermissaoPessoa> pp) {
         for(PermissaoPessoa p:pp )
         {
@@ -44,7 +39,6 @@ public class Pessoa implements UserDetails {
         this.permissaoPessoas=pp;
 
     }
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return permissaoPessoas;

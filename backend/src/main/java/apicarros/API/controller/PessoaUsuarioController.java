@@ -21,5 +21,4 @@ public class PessoaUsuarioController {
         return pessoaUsuarioService.registrar(pessoaUsuarioRequestDTO);
     }
 
-
 }
