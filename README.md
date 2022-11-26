@@ -1,5 +1,7 @@
 # API
 
+Bruno Guaraciaba e Gabriel Ribeiro
+
 INSERIR PESSOA
 
 http://localhost:8081/api/pessoa
